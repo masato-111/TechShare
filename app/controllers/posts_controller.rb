@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  def index
+    @posts= Post.order(created_at: :desc)
+  end
+
+
   def new
     @post= Post.new
   end
@@ -14,7 +19,7 @@ class PostsController < ApplicationController
 
   private
   def posts_params
-    params.expect(post: [:ttitle, :body, :image])
+    params.expect(post: [:title, :body, :image])
   end
   
 end
