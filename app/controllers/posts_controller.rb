@@ -1,7 +1,16 @@
 class PostsController < ApplicationController
+  def destroy
+    @post= Post.find(params[:id])
+    @post.destroy!
+      redirect_to posts_path
+  end
+
+
   def show
     @post= Post.find(params[:id])
   end
+
+  
   def index
     @posts= Post.order(created_at: :desc)
   end

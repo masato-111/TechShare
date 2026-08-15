@@ -7,3 +7,4 @@
     %h1.card-title.h2.m-0= @post.title
   .card-body
     .card-text= markdown(@post.body).html_safe
+    = button_to '削除', post_path(@post), method: :delete, onclick: "return confirm('本当に削除してもよろしいでしょうか？');", class: 'btn btn-outline-danger'
